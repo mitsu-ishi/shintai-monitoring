@@ -17,7 +17,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     var foldingFlg2 = false
     var foldingFlg3 = false
 
-    // 配列   
+    // 配列
     var items1: NSMutableArray = ["小児", "高齢者", "肝機能障害", "腎機能障害"]
     var items2: NSMutableArray = ["薬剤性パーキンソニスムス", "アカシジア","ジストニア","ジスキネジア","悪性症候群","高プロラクチン血症","性機能障害","体重増加","糖尿病"]
     var items3: NSMutableArray = ["甲状腺機能低下症","肝機能障害","腎機能障害","体重増加","発疹","薬物血中濃度上昇"]
