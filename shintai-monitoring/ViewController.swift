@@ -25,6 +25,48 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     var section2: Dictionary = [String:NSMutableArray]()
     var section3: Dictionary = [String:NSMutableArray]()
     var sections: Array = [Dictionary<String,NSMutableArray>]()
+    var firstSectionDetailContent:[Dictionary<String,String>] = [
+    [
+        "firstDetail": "振戦，筋強剛，動作緩慢，流涎",
+        "secondDetail": "第１世代抗精神病薬，一部の第２世代抗精神病薬　高齢女性",
+        "thirdDetail": "原因薬物の開始，もしくは増量が契機となる",
+        "fourthDetail": "数日〜数週間以内",
+        "fifthDetail": "陰性症状や抑うつ症状と間違われやすい",
+        "sixthDetail": "第２世代抗精神病薬を使用する．第１世代抗精神病薬を使用する場合は少量投与にする．抗パーキンソン薬を併用する．",
+        "seventhDetail": "抗がん薬などによる広範な脳障害では，筋強剛と無動が出現し，"
+    ],
+           [
+               "firstDetail": "2",
+               "secondDetail": "2",
+               "thirdDetail": "2-thirdlabel",
+               "fourthDetail": "2-fourthlabel",
+               "fifthDetail": "2-fifthlabel",
+               "sixthDetail": "2-sixthdetail",
+               "seventhDetail": "2-seventhDetail"
+           ]
+       ]
+    
+    var secondSectionDetailContent:[Dictionary<String,String>] = [
+           [
+               "firstDetail": "secondSectionDetailContent",
+               "secondDetail": "secondSectionDetailContent性",
+               "thirdDetail": "原因薬物の開始，もしくは増量が契機となる",
+               "fourthDetail": "数日〜secondSectionDetailContent",
+               "fifthDetail": "陰secondSectionDetailContentやすい",
+               "sixthDetail": "secondSectionDetailContent薬を併用する．",
+               "seventhDetail": "secondSectionDetailContent出現し，"
+           ],
+           [
+               "firstDetail": "secondSectionDetailContent",
+               "secondDetail": "secondSectionDetailContent性",
+               "thirdDetail": "原因薬物の開始，もしくは増量が契機となる",
+               "fourthDetail": "数日〜secondSectionDetailContent",
+               "fifthDetail": "陰secondSectionDetailContentやすい",
+               "sixthDetail": "secondSectionDetailContent薬を併用する．",
+               "seventhDetail": "secondSectionDetailContent出現し，"
+           ]
+       ]
+
     
    // MARK: アクション
       @objc func tapHeader(gestureRecognizer: UITapGestureRecognizer) {
@@ -142,21 +184,38 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any!) {
               if (segue.identifier == "toTextView") {
+                
        let detailVC: NextViewController = (segue.destination as? NextViewController)!
-               detailVC.data = [
-                   "firstDetail": "振戦，筋強剛，動作緩慢，流涎",
-                   "secondDetail": "第１世代抗精神病薬，一部の第２世代抗精神病薬　高齢女性",
-                   "thirdDetail": "原因薬物の開始，もしくは増量が契機となる",
-                   "fourthDetail": "数日〜数週間以内",
-                   "fifthDetail": "陰性症状や抑うつ症状と間違われやすい",
-                   "sixthDetail": "第２世代抗精神病薬を使用する．第１世代抗精神病薬を使用する場合は少量投与にする．抗パーキンソン薬を併用する．",
-                   "seventhDetail": "抗がん薬などによる広範な脳障害では，筋強剛と無動が出現し，"
-               ]
-              }
-
-       }
-
-    
+                let indexPath = self.NextViewController.indexPathForSelectedRow!
+        print("\(indexPath.section)セクションの　\(indexPath.row)番目がタップされました")
+                detailVC.data = self.getData(IndexPath: indexPath)
+                }
+        
     }
+
+    private func getData(IndexPath: IndexPath) -> Dictionary<String,String> {
+              switch IndexPath.section {
+              case 0:
+                  if self.firstSectionDetailContent.count <= IndexPath.row {
+                      print("コンテンツが設定されていません")
+                      return [:]
+                  }
+                  return self.firstSectionDetailContent[IndexPath.row]
+                
+         case 1:
+                    if self.secondSectionDetailContent.count <= IndexPath.row {
+                        print("コンテンツが設定されていません")
+                        return [:]
+                    }
+                    return self.secondSectionDetailContent[IndexPath.row]
+                default:
+                    print("no data..")
+                }
+                return [:]
+            }
+    
+}
+        
+
 
 
