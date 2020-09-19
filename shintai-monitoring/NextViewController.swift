@@ -13,7 +13,7 @@ class NextViewController: UIViewController {
     var data:Dictionary<String,String> = [:]
     
     // @IBOutlet weak var shushojoLabel: UILabel!
-    // @IBOutlet weak var shojoDetailLabel: UILabel!
+    @IBOutlet weak var shojoDetailLabel: UILabel!
     // @IBOutlet weak var highriskLabel: UILabel!
     @IBOutlet weak var riskDetailLabel: UILabel!
     // @IBOutlet weak var ekigakuLabel: UILabel!
@@ -27,16 +27,15 @@ class NextViewController: UIViewController {
     //@IBOutlet weak var chuuiLabel: UILabel!
     @IBOutlet weak var chuuiDetailLabel: UILabel!
     
-    
     override func viewDidLoad() {
         super.viewDidLoad()
-    // self.shojoDetailLabel.text = self.data["firstDetail"]
-    // self.riskDetailLabel.text = self.data["secondDetail"]
-    // self.ekigakuDetailLabel.text = self.data["thirdDetail"]
-    // self.jikiDetailLabel.text = self.data["fourthDetail"]
-    // self.shinsatsuDetailLabel.text = self.data["fifthDetail"]
-    // self.yobouDetailLabel.text = self.data["sixthDetail"]
-    // self.chuuiDetailLabel.text = self.data["seventhDetail"]
+    self.shojoDetailLabel.text = self.data["firstDetail"]
+    self.riskDetailLabel.text = self.data["secondDetail"]
+    self.ekigakuDetailLabel.text = self.data["thirdDetail"]
+    self.jikiDetailLabel.text = self.data["fourthDetail"]
+    self.shinsatsuDetailLabel.text = self.data["fifthDetail"]
+    self.yobouDetailLabel.text = self.data["sixthDetail"]
+    self.chuuiDetailLabel.text = self.data["seventhDetail"]
        
     }
 
